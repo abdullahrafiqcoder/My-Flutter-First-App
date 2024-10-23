@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-
+import 'package:testing_app/pages/login_page.dart';
+import 'pages/home_page.dart';
 
 void main(){
   runApp(Myapp());
 }
 
 class Myapp extends StatelessWidget {
-  const Myapp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-          child: Text("This Is My First Mobile App On Flutter"),
-          ),
-        ),
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      themeMode: ThemeMode.light,
+      initialRoute: "/home",
+      routes: {
+        "/" : (context)=>  LoginPage(),
+        "/home" : (context)=> HomePage(),
+        "/login" : (context)=> LoginPage(),
+      },
     );
   }
+
 }
+
+
